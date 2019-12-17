@@ -42,12 +42,26 @@ with open (csvpath,newline ='') as csvBudget:
         #print(row)
        
 print('Financial Analysis')
-print('.....................')
+print('........................................................................')
 print(f'Total Months: {month_count}')
 print(f'Total: {revenue_total}')
 print(f'Average Change: '+ str(round(revenue_total/month_count,2)))
 print(f'Greatest Increase in Profits: {Great_Inc_Date}  (${Great_Increase})')
 print(f'Greatest Descrease in Profits: {Great_Dec_Date} (${Great_Decrease})')
+
+output_path = os.path.join("PyBank","PyBank.csv")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=',')
+
+    csvwriter.writerow(['Financial Analysis'])
+    csvwriter.writerow(['.....................'])
+    csvwriter.writerow([f'Total Months: {str(month_count)}'])
+    csvwriter.writerow([f'Greatest Increase in Profits: {Great_Inc_Date}  (${Great_Increase})'])
+    csvwriter.writerow([f'Greatest Descrease in Profits: {Great_Dec_Date} (${Great_Decrease})'])
+
+
 
 
 
