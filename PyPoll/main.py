@@ -1,30 +1,28 @@
 import os
 import csv
 
-canName = []
 totalVote = 0
-canVote = []
-canCount = 0
 canDict = {}
 
 def rowcount(csvreader):
     global totalVote
-    global canName
-    global canCount
+    global canDict
     for row in csvreader:
         totalVote += 1
-        if row[2] not in canName:
-            canName.append(row[2])
-            canCount += 1
-            canDict = {canName : 0}
-
-        
-
-""" def votecount(csvreader):
-    global canName
+        if row[2] not in canDict:
+            #canName.append(row[2])
+            canDict.update({row[2]:0})
+            
+            
+def votecount(csvreader):
+    global canDict
+    global voteCount
     for row in csvreader:
-        for i in canName:
-            if row[2] == i: """
+           for i in canDict:
+                if row[2] == i:
+                    canDict.update({i:canDict[i]+1})
+                    
+
                 
    
 
@@ -47,8 +45,8 @@ with open (csvpath,newline ='') as csvElect:
     votecount(csvreader)
     
 print(totalVote)
-print(canName)
-print(canVote)
+print(canDict)
+#print(canVote)
     
   
 
