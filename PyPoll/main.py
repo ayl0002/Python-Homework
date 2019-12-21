@@ -90,17 +90,34 @@ with open (csvpath,newline ='') as csvElect:
     
     winCan(csvreader)
 
-print(totalVote)
-print(canDict)
-print(canPercent)
-print(canName)
-print(canVote)
-print(winName)
-print(canWin)
+print('Election Results')
+print('...................................')
+print(f'Total Votes: {totalVote}')
+print('...................................')
+print(f'{canName[0]}: {canPercent[canName[0]]} ({canDict[canName[0]]})')
+print(f'{canName[1]}: {canPercent[canName[1]]} ({canDict[canName[1]]})')
+print(f'{canName[2]}: {canPercent[canName[2]]} ({canDict[canName[2]]})')
+print(f'{canName[3]}: {canPercent[canName[3]]} ({canDict[canName[3]]})')
+print('...................................')
+print(f'Winner: {winName}')
+print('...................................')
 
+output_path = os.path.join("PyPoll.csv")
 
+with open(output_path, 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=',')
 
-
+    csvwriter.writerow(['Election Results'])
+    csvwriter.writerow(['...................................'])
+    csvwriter.writerow([f'Total Votes: {totalVote}'])
+    csvwriter.writerow(['...................................'])
+    csvwriter.writerow([f'{canName[0]}: {canPercent[canName[0]]} ({canDict[canName[0]]})'])
+    csvwriter.writerow([f'{canName[1]}: {canPercent[canName[1]]} ({canDict[canName[1]]})'])
+    csvwriter.writerow([f'{canName[2]}: {canPercent[canName[2]]} ({canDict[canName[2]]})'])
+    csvwriter.writerow([f'{canName[3]}: {canPercent[canName[3]]} ({canDict[canName[3]]})'])
+    csvwriter.writerow(['...................................'])
+    csvwriter.writerow([f'Winner: {winName}'])
+    csvwriter.writerow(['...................................'])
  
 
 

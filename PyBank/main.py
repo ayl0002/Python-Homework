@@ -3,7 +3,7 @@ import os
 import csv
 
 #Read CSV File
-csvpath = os.path.join ("PyBank/Resources/budget_data.csv")
+csvpath = os.path.join ("Resources/budget_data.csv")
 
 with open (csvpath,newline ='') as csvBudget:
 
@@ -49,7 +49,7 @@ print(f'Average Change: '+ str(round(revenue_total/month_count,2)))
 print(f'Greatest Increase in Profits: {Great_Inc_Date}  (${Great_Increase})')
 print(f'Greatest Descrease in Profits: {Great_Dec_Date} (${Great_Decrease})')
 
-output_path = os.path.join("PyBank","PyBank.csv")
+output_path = os.path.join("PyBank.csv")
 
 # Open the file using "write" mode. Specify the variable to hold the contents
 with open(output_path, 'w', newline='') as csvfile:
